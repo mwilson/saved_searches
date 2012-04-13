@@ -1,0 +1,9 @@
+<%= semantic_form_for @model_name,
+                      :url => {:action => "query_model_by_form", :controller => "saved_searches", :model_name => @model_name.class} do |f| %>
+    <%= f.inputs do %>
+        <% for field in @saved_search.available_fields %>
+            <%= f.input field.to_sym %>
+        <% end %>
+        <%= f.commit_button "Search" %>
+    <% end %>
+<% end %>

@@ -1,0 +1,15 @@
+<%= semantic_form_for @saved_search.model_name,
+                      :url => query_model_by_form_saved_searches_path(:model_name=> @saved_search.model_name) do |f| %>
+    <%= f.inputs do %>
+        <% for field in @saved_search.display_fields %>
+            <%= f.input field[:name].to_sym, :label=>field[:label] %>
+        <% end %>
+        <%= f.input :redirect_controller, :as=>:hidden, :value=>params[:controller] %>
+        <%= f.input :redirect_action, :as=>:hidden, :value => params[:action] %>
+        <%= f.input :saved_search_id, :as=>:hidden, :value => @saved_search.id %>
+        <%= f.actions do %>
+              <%= f.action :submit, :as => :button %>
+       <% end %>
+    <% end %>
+<% end %>
+

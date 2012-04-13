@@ -1,0 +1,36 @@
+<h1>Saved Searches</h1>
+
+<table class='tablesorter'>
+  <thead>
+  <tr>
+    <th>Model Name</th>
+    <th>Available Fields</th>
+    <th>Query Parameters</th>
+    <th>Persist</th>
+    <th>Persist Key</th>
+    <th>Persist Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @saved_searches.each do |saved_search| %>
+      <tr>
+        <td><%= saved_search.model_name %></td>
+        <td><%= saved_search.available_fields %></td>
+        <td><%= saved_search.query_parameters %></td>
+        <td><%= saved_search.persist %></td>
+        <td><%= saved_search.persist_key %></td>
+        <td><%= saved_search.persist_value %></td>
+        <td><%= link_to 'Show', saved_search %></td>
+        <td><%= link_to 'Edit', edit_saved_search_path(saved_search) %></td>
+        <td><%= link_to 'Destroy', saved_search, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Saved Search', new_saved_search_path %>

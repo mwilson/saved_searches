@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Model name:</b>
+  <%= @saved_search.model_name %>
+</p>
+
+<p>
+  <b>Available fields:</b>
+  <%= @saved_search.available_fields %>
+</p>
+
+<p>
+  <b>Query parameters:</b>
+  <%= @saved_search.query_parameters %>
+</p>
+
+<p>
+  <b>Persist:</b>
+  <%= @saved_search.persist %>
+</p>
+
+<p>
+  <b>Persist key:</b>
+  <%= @saved_search.persist_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_saved_search_path(@saved_search) %> |
+<%= link_to 'Back', saved_searches_path %>

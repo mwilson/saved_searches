@@ -1,0 +1,4 @@
+module SavedSearches 
+  module SavedSearchesHelper
+  end
+end
