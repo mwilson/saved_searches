@@ -20,7 +20,11 @@ class SavedSearch < ActiveRecord::Base
     query_parameters.delete(:redirect_controller)
     query_parameters.delete(:redirect_action)
     query_parameters.delete(:saved_search_id)
-    sql = "#{query_parameters}"
+    #sql = "#{query_parameters}"
+    query_parameters.each |key,val|
+      sql << "#{key} like #{val} and"
+    end
+    sql = sql.slice(0, sql.length-3)
     eval(self.model_name).where(eval(sql))
   end
 
