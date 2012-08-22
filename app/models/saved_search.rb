@@ -23,7 +23,7 @@ class SavedSearch < ActiveRecord::Base
     #sql = "#{query_parameters}"
     sql = String.new
     query_parameters.each do |key,val|
-      sql << "#{key} like '#{val}' and"
+      sql << "#{key} like '#{val}' and "
     end
     sql = sql.slice(0, sql.length-3)
     self.last_query = sql
