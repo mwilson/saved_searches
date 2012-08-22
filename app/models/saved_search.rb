@@ -25,7 +25,7 @@ class SavedSearch < ActiveRecord::Base
     query_parameters.each do |key,val|
       sql << "#{key} like '#{val}' and "
     end
-    sql = sql.slice(0, sql.length-3)
+    sql = sql.slice(0, sql.length-4)
     self.last_query = sql
     self.save
     eval(self.model_name).where(sql)
