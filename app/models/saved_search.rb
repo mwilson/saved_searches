@@ -28,7 +28,7 @@ class SavedSearch < ActiveRecord::Base
     sql = sql.slice(0, sql.length-3)
     self.last_query = sql
     self.save
-    eval(self.model_name).where(eval(sql))
+    eval(self.model_name).where(sql)
   end
 
   # This method translates the inputs from the form into the correct
