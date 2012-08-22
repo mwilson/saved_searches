@@ -21,6 +21,7 @@ class SavedSearch < ActiveRecord::Base
     query_parameters.delete(:redirect_action)
     query_parameters.delete(:saved_search_id)
     #sql = "#{query_parameters}"
+    sql = String.new
     query_parameters.each do |key,val|
       sql << "#{key} like #{val} and"
     end
