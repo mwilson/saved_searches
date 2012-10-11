@@ -2,7 +2,11 @@
                       :url => query_model_by_form_saved_searches_path(:model_name=> @saved_search.model_name) do |f| %>
     <%= f.inputs do %>
         <% for field in @saved_search.display_fields %>
+          <% if field[:type] == "boolean" %>
+            <%= f.input field[:name].to_sym, :as=>:boolean, :label=>field[:label] %>
+          <% else %>
             <%= f.input field[:name].to_sym, :label=>field[:label] %>
+          <% end %>
         <% end %>
         <%= f.input :redirect_controller, :as=>:hidden, :value=>params[:controller] %>
         <%= f.input :redirect_action, :as=>:hidden, :value => params[:action] %>
