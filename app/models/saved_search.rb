@@ -24,7 +24,7 @@ class SavedSearch < ActiveRecord::Base
     sql = String.new
     query_parameters.each do |key,val|
       if val.class == TrueClass || val.class == FalseClass
-        sql << "#{key} == #{val}' and "
+        sql << "#{key} == #{val} and "
       else
         sql << "#{key} like '#{val}' and "
       end
